@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para mi Chowowo❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+        }
+
+        /* Corazones */
+        .heart {
+            position: fixed;
+            top: -10px;
+            font-size: 20px;
+            animation: fall linear infinite;
+            color: rgba(255, 0, 100, 0.8);
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+            }
+        }
+
+        /* Botón */
+        .boton {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #e75480;
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            font-size: 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        /* Carta */
+        .carta {
+            display: none;
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            text-align: center;
+            animation: aparecer 1.5s ease;
+            position: relative;
+            z-index: 5;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            color: #e75480;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Galería */
+        .fotos {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .fotos img {
+            width: 30%;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+
+        .corazon {
+            font-size: 40px;
+            animation: latido 1s infinite;
+        }
+
+        @keyframes latido {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+
+<body>
+
+<button class="boton" onclick="abrirCarta()">💌 Abrir carta</button>
+
+<div class="carta" id="carta">
+    <div class="corazon">❤️</div>
+    <h1>Feliz Cumpleaños, mi amolshito</h1>
+
+    <p>
+        El día de hoy es el cumpleaños de la persona más especial que hay en mi vida,
+        a pesar de no poder estar junto contigo en este día tan especial
+        por lo menos quisiera hacerme presente con este detalle que no es nada 
+        comparando lo increíble que eres.
+        Simplemente te quiero dar las gracias por todo, de verdad no tienes
+        idea de lo feliz que me haces. Gracias por permitirme seguir a tu lado
+        cada día. Espero seguir compartiendo más experiencias de las que tenemos,
+        Te amo tanto y ya verás que muy pronto estaremos juntos tú y yo mi amor
+    </p>
+
+    <div class="fotos">
+        <img src="72116b10-88c1-40b5-a1d9-6f01d748a872.JPEG">
+        <img src="45667200-4ced-4778-b2f0-c5f68b57fc1d.JPEG">
+        <img src="c5dee141-affa-4a32-95a9-931de765fa53.JPEG">
+    </div>
+
+    <p>
+        Gracias por cada palabra, cada abrazo  
+        y cada momento a tu lado
+    </p>
+
+    <p>
+        Te amo ayer, hoy y siempre 
+    </p>
+
+    <p><strong>Con todo mi corazón,<br>Rubén 💖</strong></p>
+</div>
+
+<!-- Música -->
+<audio id="musica" loop>
+    <source src="Te Quiero Dijiste.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function abrirCarta() {
+        document.querySelector('.boton').style.display = 'none';
+        document.getElementById('carta').style.display = 'block';
+        document.getElementById('musica').play();
+        crearCorazones();
+    }
+
+    function crearCorazones() {
+        setInterval(() => {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }, 300);
+    }
+</script>
+
+</body>
+</html>
